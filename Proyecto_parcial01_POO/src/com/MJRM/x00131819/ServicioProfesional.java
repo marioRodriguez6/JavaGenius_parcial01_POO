@@ -16,4 +16,13 @@ public class ServicioProfesional extends Empleado {
         this.mesesContrato = mesesContrato;
     }
 
+    @Override
+    public String toString() {
+        return "ServicioProfesional{" +
+                "mesesContrato=" + mesesContrato +
+                ", nombre='" + nombre + '\'' +
+                ", puesto='" + puesto + '\'' +
+                ", salario=" + salario +
+                '}';
+    }
 }

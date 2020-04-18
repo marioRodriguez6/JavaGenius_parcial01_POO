@@ -1,6 +1,6 @@
 package com.MJRM.x00131819;
 
-public class Empleado {
+public abstract class Empleado {
     protected String nombre, puesto;
     protected double salario;
 
@@ -25,4 +25,14 @@ public class Empleado {
     public void setSalario(double salario) {
         this.salario = salario;
     }
+
+    @Override
+    public String toString() {
+        return "Empleado{" +
+                "nombre='" + nombre + '\'' +
+                ", puesto='" + puesto + '\'' +
+                ", salario=" + salario +
+                '}';
+    }
 }
+
