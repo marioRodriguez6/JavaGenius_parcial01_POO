@@ -37,7 +37,7 @@ public final class CalculadoraImpuestos {
                 rentaP = (0.3*(restante - 2038.10) + 288.57);
 
                 totalAFP += AFP;
-                totalISS+= ISS;
+                totalISS  += ISS;
                 totalRenta += rentaP;
 
                 as.format(pagoEmployee = (restante - rentaP));
@@ -48,8 +48,7 @@ public final class CalculadoraImpuestos {
 
     public static String mostrarTotales(){
 
-         JOptionPane.showMessageDialog(null, "total de renta: $" + totalRenta + "\n" +
-                "total de ISS: $" + totalISS + "\n" + "total de AFP: $" + totalAFP);
-                return null;
+        return "total de renta: $" + totalRenta + "\n" +
+                "total de ISS: $" + totalISS + "\n" + "total de AFP: $" + totalAFP;
     }
 }
