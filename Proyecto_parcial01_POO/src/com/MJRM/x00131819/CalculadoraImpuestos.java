@@ -1,15 +1,18 @@
 package com.MJRM.x00131819;
 
 
+import javax.swing.*;
+import java.text.DecimalFormat;
+
 public final class CalculadoraImpuestos {
 
-    private double totalRenta, totalISS, totalAFP;
-
+    private static double totalRenta, totalISS, totalAFP;
+    static DecimalFormat as = new DecimalFormat("#.0");
     private CalculadoraImpuestos(){
 
     }
 
-   public double calcularPago(Empleado empleado){
+   public static double calcularPago(Empleado empleado){
         double pagoEmployee = 0;
         double sueldo = empleado.getSalario();
 
@@ -37,20 +40,16 @@ public final class CalculadoraImpuestos {
                 totalISS+= ISS;
                 totalRenta += rentaP;
 
-                pagoEmployee = (restante - rentaP);
+                as.format(pagoEmployee = (restante - rentaP));
         }
 
         return pagoEmployee ;
     }
 
-    public String mostrarTotales(){
+    public static String mostrarTotales(){
 
-        System.out.println("total de renta: " + totalRenta);
-        System.out.println("total de ISS: " + totalISS);
-        System.out.println("total de AFP: " + totalAFP);
-
-
-        return null;
+         JOptionPane.showMessageDialog(null, "total de renta: $" + totalRenta + "\n" +
+                "total de ISS: $" + totalISS + "\n" + "total de AFP: $" + totalAFP);
+                return null;
     }
-
 }
