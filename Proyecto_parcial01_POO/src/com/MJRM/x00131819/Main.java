@@ -2,6 +2,7 @@ package com.MJRM.x00131819;
 
 import javax.swing.*;
 import java.text.DecimalFormat;
+import java.util.InputMismatchException;
 
 public class Main {
 static DecimalFormat df = new DecimalFormat("#.00");
@@ -94,6 +95,8 @@ static DecimalFormat df = new DecimalFormat("#.00");
             JOptionPane.showMessageDialog(null,"Dato erroneo"  );
         }catch ( WrongInputException as){
             JOptionPane.showMessageDialog(null,"Dato erroneo.");
+        }catch (NumberFormatException xs){
+            JOptionPane.showMessageDialog(null,"error");
         }
 
     } while (opc1 != 3) ;
