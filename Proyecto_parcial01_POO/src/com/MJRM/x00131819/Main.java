@@ -13,8 +13,7 @@ static DecimalFormat df = new DecimalFormat("#.00");
     int opc1 = 0;
     do {
         try {
-
-            opc1 = Integer.parseInt(JOptionPane.showInputDialog(null, menuPrincipal()));
+                opc1 = Integer.parseInt(JOptionPane.showInputDialog(null, menuPrincipal()));
             switch (opc1) {
                 case 1:
                     byte opc2 = Byte.parseByte(JOptionPane.showInputDialog(null, "digite el " +
@@ -22,6 +21,7 @@ static DecimalFormat df = new DecimalFormat("#.00");
 
                     if (opc2 == 1) {
                         permWork.nombre = JOptionPane.showInputDialog(null, "Ingese su nombre: ");
+                        if (itsnumber(permWork.nombre)) throw new WrongInputException("Error!");
                         permWork.puesto = JOptionPane.showInputDialog(null, "Puesto del trabajador: ");
                         permWork.salario = Double.parseDouble(JOptionPane.showInputDialog(null, "ing" +
                                 "rese el salario del trabajador: "));
@@ -91,16 +91,24 @@ static DecimalFormat df = new DecimalFormat("#.00");
             }
 
         }catch (NegativeDataException ds){
-            JOptionPane.showMessageDialog(null,"Dato erroneo" );
+            JOptionPane.showMessageDialog(null,"Dato erroneo"  );
+        }catch ( WrongInputException as){
+            JOptionPane.showMessageDialog(null,"Dato erroneo.");
         }
 
-        } while (opc1 != 3) ;
-
-
-
+    } while (opc1 != 3) ;
   }
     static String menuPrincipal() {
         return  "\n 1. Agregar Empleado. \n 2. Ver pago neto y total. \n 3. Salir del menu.";
+    }
+
+    public static boolean itsnumber(String num){
+        char[] chars = num.toCharArray();
+        for(char num1 : chars){
+            if (Character.isDigit(num1))
+                return true;
+        }
+        return false;
     }
 
 }
