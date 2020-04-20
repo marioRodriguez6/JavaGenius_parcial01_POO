@@ -92,11 +92,9 @@ static DecimalFormat df = new DecimalFormat("#.00");
             }
 
         }catch (NegativeDataException ds){
-            JOptionPane.showMessageDialog(null,"Dato erroneo"  );
-        }catch ( WrongInputException as){
+            JOptionPane.showMessageDialog(null,"Dato erroneo");
+        }catch ( WrongInputException | NumberFormatException as){
             JOptionPane.showMessageDialog(null,"Dato erroneo.");
-        }catch (NumberFormatException xs){
-            JOptionPane.showMessageDialog(null,"error");
         }
 
     } while (opc1 != 3) ;
@@ -113,5 +111,4 @@ static DecimalFormat df = new DecimalFormat("#.00");
         }
         return false;
     }
-
 }
